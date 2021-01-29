@@ -8,4 +8,13 @@
         ]
         );
     }
+
+    function objectives(){
+        $db = dbConnect();
+
+        $query = $db->prepare("SELECT `objective` FROM `t_objectives`");
+        $query->execute();
+
+        return $query->fetch();
+    }
 ?>
