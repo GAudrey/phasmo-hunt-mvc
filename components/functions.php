@@ -9,7 +9,7 @@
         );
     }
 
-    function objectives(){
+    function getObjectives(){
         $db = dbConnect();
 
         $query = $db->prepare("SELECT `short_objective`, `objective` FROM `t_objectives`");
@@ -18,7 +18,7 @@
         return $query->fetchAll();
     }
 
-    function firstname(){
+    function getFirstname(){
         $db = dbConnect();
 
         $query = $db->prepare("SELECT `firstname` FROM `t_firstname`");
@@ -27,12 +27,16 @@
         return $query->fetchAll();
     }
 
-    function lastname(){
+    function getLastname(){
         $db = dbConnect();
 
         $query = $db->prepare("SELECT `lastname` FROM `t_lastname`");
         $query->execute();
 
         return $query->fetchAll();
+    }
+
+    function submitForm(){
+        
     }
 ?>
