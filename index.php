@@ -20,8 +20,8 @@
                 <div>
                     <?php foreach(getObjectives() as $secObj): ?>
                         <div>
-                            <input type="checkbox" id="<?php echo $secObj['short_objective']; ?>" name="choose_obj[<?php echo $secObj['short_objective']; ?>]" value="<?php echo $secObj['objective']; ?>">
-                            <label for="<?php echo $secObj['short_objective']; ?>"><?php echo $secObj['objective']; ?></label>
+                            <input type="checkbox" id="objective_checkbox_id_<?php echo $secObj['id_objective']; ?>" name="choose_objective[<?php echo $secObj['short_objective']; ?>]" value = "<?php echo $secObj['id_objective']; ?>">
+                            <label for="objective_checkbox_id_<?php echo $secObj['id_objective']; ?>"><?php echo $secObj['objective']; ?></label>
                         </div>
                     <?php endforeach; ?>
                 </div>
@@ -48,9 +48,9 @@
                 <!-- TALK TO -->
                 <div>
                     <p>Respond to:</p>
-                    <input type="radio" id="talk_solo" name="talk" value="people who are alone">
+                    <input type="radio" id="talk_solo" name="talk" value="talk_solo">
                     <label for="talk_solo">people who are alone</label>
-                    <input type="radio" id="talk_multi" name="talk" value="everyone">
+                    <input type="radio" id="talk_multi" name="talk" value="talk_multi">
                     <label for="talk_multi">everyone</label>
                 </div>
                 <input type="submit" name="submit" value="let the investigation begins">
@@ -59,7 +59,7 @@
 
         <?php
             if(isset($_POST['submit'])){
-                foreach($_POST['choose_obj'] as $key => $choice){
+                foreach($_POST['choose_objective'] as $key => $choice){
                     foreach(getObjectives() as $selectShortObj){
                         if($key == $selectShortObj['short_objective']){
                             echo '<p>' . $selectShortObj['objective'] . '</p>';
@@ -71,6 +71,8 @@
                     echo '<p>' . $_POST['firstname'] . ' ' . $_POST['lastname'] . '</p>';
                 $radioResp = $_POST['talk'];
                     echo '<p>' . $_POST['talk'] . '</p>';
+
+                var_dump($_POST);
             }
         ?>
     </main>
