@@ -20,7 +20,7 @@
                 <div>
                     <?php foreach(getObjectives() as $secObj): ?>
                         <div>
-                            <input type="checkbox" id="objective_checkbox_id_<?php echo $secObj['id_objective']; ?>" name="choose_objective[<?php echo $secObj['short_objective']; ?>]" value = "<?php echo $secObj['id_objective']; ?>">
+                            <input type="checkbox" id="objective_checkbox_id_<?php echo $secObj['id_objective']; ?>" name="choose_objective[<?php echo $secObj['id_objective']; ?>]" value="<?php echo $secObj['short_objective']; ?>">
                             <label for="objective_checkbox_id_<?php echo $secObj['id_objective']; ?>"><?php echo $secObj['objective']; ?></label>
                         </div>
                     <?php endforeach; ?>
@@ -59,20 +59,25 @@
 
         <?php
             if(isset($_POST['submit'])){
-                foreach($_POST['choose_objective'] as $key => $choice){
-                    foreach(getObjectives() as $selectShortObj){
-                        if($key == $selectShortObj['short_objective']){
-                            echo '<p>' . $selectShortObj['objective'] . '</p>';
-                        }
+                $objectives = getObjectives();
+                foreach($objectives as $choice){
+                    if(array_key_exists($choice['id_objective'], $_POST['choose_objective'])){
+                        echo '<p>' . $choice['objective'] . '</p>';
                     }
                 };
+                
                 $selFrtn = $_POST['firstname'];
                 $selLstn = $_POST['lastname'];
                     echo '<p>' . $_POST['firstname'] . ' ' . $_POST['lastname'] . '</p>';
-                $radioResp = $_POST['talk'];
-                    echo '<p>' . $_POST['talk'] . '</p>';
 
-                var_dump($_POST);
+                $radioResp = $_POST['talk'];
+                if ($_POST['talk'] === 'talk_solo') { 
+                    echo '<p>people who are alone</p>';
+                } 
+                else {
+                    echo '<p>everyone</p>';
+                };
+                // var_dump($_POST);
             }
         ?>
     </main>
