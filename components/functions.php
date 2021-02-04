@@ -12,7 +12,7 @@
     function getObjectives(){
         $db = dbConnect();
 
-        $query = $db->prepare("SELECT `short_objective`, `objective` FROM `t_objectives`");
+        $query = $db->prepare("SELECT * FROM `t_objectives`");
         $query->execute();
 
         return $query->fetchAll();
@@ -21,7 +21,7 @@
     function getFirstname(){
         $db = dbConnect();
 
-        $query = $db->prepare("SELECT `firstname` FROM `t_firstname`");
+        $query = $db->prepare("SELECT * FROM `t_firstname`");
         $query->execute();
 
         return $query->fetchAll();
@@ -30,13 +30,22 @@
     function getLastname(){
         $db = dbConnect();
 
-        $query = $db->prepare("SELECT `lastname` FROM `t_lastname`");
+        $query = $db->prepare("SELECT * FROM `t_lastname`");
         $query->execute();
 
         return $query->fetchAll();
     }
 
     function submitForm(){
-        
+        if(isset($_POST['submit'])){
+            foreach($_POST['choose_obj'] as $choice){
+                echo $secObj['objective'];
+            };
+            $selFrtn = $_POST['firstname'];
+            $selLstn = $_POST['lastname'];
+            $radioResp = $_POST['talk'];
+
+            var_dump($_POST);
+        }
     }
 ?>

@@ -20,14 +20,14 @@
                 <div>
                     <?php foreach(getObjectives() as $secObj): ?>
                         <div>
-                            <input type="checkbox" id="<?php echo $secObj['short_objective']; ?>" name="choose_obj[<?php echo $secObj['short_objective']; ?>]">
+                            <input type="checkbox" id="<?php echo $secObj['short_objective']; ?>" name="choose_obj[<?php echo $secObj['short_objective']; ?>]" value="<?php echo $secObj['objective']; ?>">
                             <label for="<?php echo $secObj['short_objective']; ?>"><?php echo $secObj['objective']; ?></label>
                         </div>
                     <?php endforeach; ?>
                 </div>
                 <!-- FIRST NAMES -->
                 <div>
-                    <label for="ghost_firstname">What's you ghost first name?</label>
+                    <label for="ghost_firstname">What's the ghost first name?</label>
                     <select name="firstname" id="ghost_firstname">
                         <option>- Select a first name</option>
                         <?php foreach(getFirstname() as $frtn): ?>
@@ -37,7 +37,7 @@
                 </div>
                 <!-- LAST NAMES -->
                 <div>
-                    <label for="ghost_lastname">What's you ghost last name?</label>
+                    <label for="ghost_lastname">What's the ghost last name?</label>
                     <select name="lastname" id="ghost_lastname">
                         <option>- Select a last name</option>
                         <?php foreach(getLastname() as $lstn): ?>
@@ -48,9 +48,9 @@
                 <!-- TALK TO -->
                 <div>
                     <p>Respond to:</p>
-                    <input type="radio" id="talk_solo" name="talk" value="talk_solo">
+                    <input type="radio" id="talk_solo" name="talk" value="people who are alone">
                     <label for="talk_solo">people who are alone</label>
-                    <input type="radio" id="talk_multi" name="talk" value="talk_multi">
+                    <input type="radio" id="talk_multi" name="talk" value="everyone">
                     <label for="talk_multi">everyone</label>
                 </div>
                 <input type="submit" name="submit" value="let the investigation begins">
@@ -59,13 +59,18 @@
 
         <?php
             if(isset($_POST['submit'])){
-                foreach($_POST['choose_obj'] as $choice);
+                foreach($_POST['choose_obj'] as $key => $choice){
+                    foreach(getObjectives() as $selectShortObj){
+                        if($key == $selectShortObj['short_objective']){
+                            echo '<p>' . $selectShortObj['objective'] . '</p>';
+                        }
+                    }
+                };
                 $selFrtn = $_POST['firstname'];
                 $selLstn = $_POST['lastname'];
+                    echo '<p>' . $_POST['firstname'] . ' ' . $_POST['lastname'] . '</p>';
                 $radioResp = $_POST['talk'];
-
-                print_r($_POST);
-                $choice;
+                    echo '<p>' . $_POST['talk'] . '</p>';
             }
         ?>
     </main>
