@@ -1,20 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Phasmo Hunt</title>
-</head>
+<?php
 
-<body>
-<?php require_once('models/functions.php'); ?>
-    <header></header>
+// import router controller
+require('controllers/router.php');
 
-    <main>
-        <?php require_once('views/form_view.php'); ?>
+// new router
+$router = new router();
+// call router
+$router->requestRouter();
 
-    </main>
-
-    <footer></footer>
-</body>
-</html>
+?>
