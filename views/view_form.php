@@ -1,7 +1,7 @@
 <?php $this->title = "Phasmo Hunt"; ?>
 
 <!-- WHITEBOARD FORM -->
-<section id="whiteboard">
+<section id="form">
     <form method="post" action="">
         <!-- OBJECTIVES -->
         <div>         
@@ -9,7 +9,7 @@
                 <label for="optional_objective_1">Optional objective 1</label>
                 <select name="opt_obj_1" id="optional_objective_1">
                     <option>- Select an objective</option>
-                    <?php foreach(getObjectives() as $opt_obj): ?>
+                    <?php foreach($objectives as $opt_obj): ?>
                         <option value="<?= $opt_obj['id_objective']; ?>"><?= $opt_obj['objective']; ?></option>
                     <?php endforeach; ?>
                 </select>
@@ -18,7 +18,7 @@
                 <label for="optional_objective_2">Optional objective 2</label>
                 <select name="opt_obj_2" id="optional_objective_2">
                     <option>- Select an objective</option>
-                    <?php foreach(getObjectives() as $opt_obj): ?>
+                    <?php foreach($objectives as $opt_obj): ?>
                         <option value="<?= $opt_obj['id_objective']; ?>"><?= $opt_obj['objective']; ?></option>
                     <?php endforeach; ?>
                 </select>
@@ -27,7 +27,7 @@
                 <label for="optional_objective_3">Optional objective 3</label>
                 <select name="opt_obj_3" id="optional_objective_3">
                     <option>- Select an objective</option>
-                    <?php foreach(getObjectives() as $opt_obj): ?>
+                    <?php foreach($objectives as $opt_obj): ?>
                         <option value="<?= $opt_obj['id_objective']; ?>"><?= $opt_obj['objective']; ?></option>
                     <?php endforeach; ?>
                 </select>
@@ -38,7 +38,7 @@
             <label for="ghost_firstname">What's the ghost first name?</label>
             <select name="firstname" id="ghost_firstname">
                 <option>- Select a first name</option>
-                <?php foreach(getFirstName() as $fstn): ?>
+                <?php foreach($firstname as $fstn): ?>
                      <option value="<?= $fstn['firstname']; ?>"><?= $fstn['firstname']; ?></option>
                   <?php endforeach; ?>
             </select>
@@ -48,7 +48,7 @@
             <label for="ghost_lastname">What's the ghost last name?</label>
             <select name="lastname" id="ghost_lastname">
                 <option>- Select a last name</option>
-                <?php foreach(getLastName() as $lstn): ?>
+                <?php foreach($lastname as $lstn): ?>
                     <option value="<?= $lstn['lastname']; ?>"><?= $lstn['lastname']; ?></option>
                 <?php endforeach; ?>
             </select>

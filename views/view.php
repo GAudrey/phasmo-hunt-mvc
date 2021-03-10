@@ -1,6 +1,6 @@
 <?php
 
-class view{
+class View{
 
     // file name for view
     private $file;

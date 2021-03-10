@@ -1,13 +1,13 @@
 <?php
 
-require_once('controller_form.php');
+require_once 'controller_form.php';
 
-class router{
+class Router{
 
     private $ctrlForm;
 
     public function __construct(){
-        $this->ctrlForm = new ctrlForm();
+        $this->ctrlForm = new CtrlForm();
     }
 
     public function requestRouter(){

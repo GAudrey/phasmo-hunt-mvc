@@ -1,5 +1,5 @@
 <?php
-    class whiteboard{
+    class Whiteboard{
         private $objective1;
         private $objective2;
         private $objective3;
@@ -26,7 +26,4 @@
             return '<p>' . $this->firstname . ' ' . $this->lastname . '</p>';
         }
     }
-
-    $varohAlu = new whiteboard();
-    echo $varohAlu->displayName();
 ?>

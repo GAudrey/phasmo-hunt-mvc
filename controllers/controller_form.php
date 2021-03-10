@@ -1,13 +1,23 @@
 <?php 
 
-class ctrlForm{
+require_once 'models/form.php';
+require_once 'views/view.php';
+
+class CtrlForm{
   
-    function getForm(){
-        require_once('view_form.php');
+    private $form;
+
+    public function __construct(){
+        $this->form = new Form();
     }
 
-    function getResult($selectObj1, $selectObj2, $selectObj3, $selectFstn, $selectLstn, $radioResp){
-        
+    public function getForm(){
+        $objectives = $this->form->getObjectives();
+        $firstname = $this->form->getFirstname();
+        $lastname = $this->form->getLastname();
+        $params = array('objectives' => $objectives, 'firstname' => $firstname, 'lastname' => $lastname);
+        $view = new View("form");
+        $view->generate($params);
     }
 }
 
