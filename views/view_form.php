@@ -1,3 +1,5 @@
+<?php $this->title = "Phasmo Hunt"; ?>
+
 <!-- WHITEBOARD FORM -->
 <section id="whiteboard">
     <form method="post" action="">
