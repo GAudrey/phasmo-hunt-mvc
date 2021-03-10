@@ -12,7 +12,7 @@ class CtrlForm{
     }
 
     public function getForm(){
-        $objectives = $this->form->getObjectives();
+        $objectives = $this->form->getObjectives()->fetchAll();
         $firstname = $this->form->getFirstname();
         $lastname = $this->form->getLastname();
         $params = array('objectives' => $objectives, 'firstname' => $firstname, 'lastname' => $lastname);
