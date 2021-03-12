@@ -2,7 +2,7 @@
 
 <!-- WHITEBOARD FORM -->
 <section id="form">
-    <form method="post" action="">
+    <form method="post" action="index.php?action=submit">
         <!-- OBJECTIVES -->
         <div>         
             <div>

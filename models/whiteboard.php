@@ -1,29 +1,49 @@
 <?php
-    class Whiteboard{
-        private $objective1;
-        private $objective2;
-        private $objective3;
-        private $firstname;
-        private $lastname;
-        private $response;
 
-        public function setOptObj(string $obj1, string $obj2, string $obj3){
-            $this->objective1 = $obj1;
-            $this->objective2 = $obj2;
-            $this->objective3 = $obj3;
-        }
-        
-        public function getObjective1() {
-            return $this->objective1;
-        }
+require_once 'models/model.php';
 
-        function __construct(string $firstname, string $lastname){
-            $this->firstname = $firstname;
-            $this->lastname = $lastname;
-        }
+class Whiteboard{
 
-        function displayName(){
-            return '<p>' . $this->firstname . ' ' . $this->lastname . '</p>';
-        }
+    private $obj1;
+    private $obj2;
+    private $obj3;
+    private $firstn;
+    private $lastn;
+    private $resp;
+
+    function __construct($obj1, $obj2, $obj3, $firstn, $lastn, $resp){
+        $this->obj1 = $obj1;
+        $this->obj2 = $obj2;
+        $this->obj3 = $obj3;
+        $this->firstn = $firstn;
+        $this->lastn = $lastn;
+        $this->resp = $resp;
     }
+
+    public function getObj1(){
+        return $this->obj1;
+    }
+
+    public function getObj2(){
+        return $this->obj2;
+    }
+
+    public function getObj3(){
+        return $this->obj3;
+    }
+
+    public function getFirstn(){
+        return $this->firstn;
+    }
+
+    public function getLastn(){
+        return $this->lastn;
+    }
+
+    public function getResp(){
+        return $this->resp;
+    }
+
+}
+
 ?>

@@ -18,20 +18,21 @@ class Router{
             $selectFstn = $this->getParameter($_POST, 'firstname');
             $selectLstn = $this->getParameter($_POST, 'lastname');
             $radioResp = $this->getParameter($_POST, 'talk');
-            $this->ctrlForm->getResult($selectObj1, $selectObj2, $selectObj3, $selectFstn, $selectLstn, $radioResp);
+            $this->ctrlForm->getResults($selectObj1, $selectObj2, $selectObj3, $selectFstn, $selectLstn, $radioResp);
         }else{
             $this->ctrlForm->getForm();
         }
     }
 
     // $table check $_POST in requestRouter and $name the name in form
-    private function getParametre($table, $name){
+    private function getParameter($table, $name){
         if(isset($table[$name])){
             return $table[$name];
         }else{
             throw new Exception("Missing '$name' parameter");
         }
     }
+    
 }
 
 ?>

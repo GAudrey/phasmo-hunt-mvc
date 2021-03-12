@@ -1,7 +1,7 @@
 <?php
 
 // import router controller
-require('controllers/router.php');
+require 'controllers/router.php';
 
 // new router
 $router = new Router();
