@@ -39,8 +39,8 @@
             <select name="firstname" id="ghost_firstname">
                 <option>- Select a first name</option>
                 <?php foreach($firstname as $fstn): ?>
-                     <option value="<?= $fstn['firstname']; ?>"><?= $fstn['firstname']; ?></option>
-                  <?php endforeach; ?>
+                    <option value="<?= $fstn['firstname']; ?>"><?= $fstn['firstname']; ?></option>
+                <?php endforeach; ?>
             </select>
         </div>
         <!-- LAST NAMES -->

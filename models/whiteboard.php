@@ -2,7 +2,7 @@
 
 require_once 'models/model.php';
 
-class Whiteboard{
+class Whiteboard extends Model{
 
     private $obj1;
     private $obj2;
@@ -12,9 +12,9 @@ class Whiteboard{
     private $resp;
 
     function __construct($obj1, $obj2, $obj3, $firstn, $lastn, $resp){
-        $this->obj1 = $obj1;
-        $this->obj2 = $obj2;
-        $this->obj3 = $obj3;
+        $this->obj1 = $this->getObjByID($obj1);
+        $this->obj2 = $this->getObjByID($obj2);
+        $this->obj3 = $this->getObjByID($obj3);
         $this->firstn = $firstn;
         $this->lastn = $lastn;
         $this->resp = $resp;
@@ -42,6 +42,12 @@ class Whiteboard{
 
     public function getResp(){
         return $this->resp;
+    }
+
+    public function getObjByID($idObj){
+        $sql = "SELECT objective FROM t_objectives WHERE id_objective=?";
+        $objective = $this->executeRequest($sql, array($idObj));
+        return $objective->fetch();
     }
 
 }
